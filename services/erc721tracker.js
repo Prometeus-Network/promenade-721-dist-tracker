@@ -11,7 +11,11 @@ const trackedContracts = []
 const trackerc721 = async () => {
   let contracts = []
   try {
-    let response = await axios.get(`${apiEndPoint}getTrackable721Contracts`)
+    let response = await axios.get(`${apiEndPoint}getTrackable721Contracts`, {
+      headers: {
+        'x-promenade-api-secret': PROMENADE_API_SECRET 
+      }
+    })
     if (response) {
       let data = response.data
       if (data.status == 'success') {

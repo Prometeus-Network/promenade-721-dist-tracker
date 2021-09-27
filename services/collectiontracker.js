@@ -7,6 +7,8 @@ const rpcapi = process.env.NETWORK_RPC
 const chainID = parseInt(process.env.NETWORK_CHAINID)
 const provider = new ethers.providers.JsonRpcProvider(rpcapi, chainID)
 
+const PROMENADE_API_SECRET = process.env.PROMENADE_API_SECRET;
+
 const toLowerCase = (val) => {
   if (val) return val.toLowerCase()
   else return val
@@ -28,6 +30,9 @@ const callAPI = async (endpoint, data) => {
   await axios({
     method: 'post',
     url: apiEndPoint + endpoint,
+    headers: {
+      'x-promenade-api-secret': PROMENADE_API_SECRET 
+    },
     data,
   })
 }
