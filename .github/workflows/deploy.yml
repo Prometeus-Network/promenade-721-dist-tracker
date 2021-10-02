@@ -1,4 +1,4 @@
-name: Deploy (testnet)
+name: Deploy (mainnet)
 
 env:
   REGISTRY: registry.digitalocean.com
