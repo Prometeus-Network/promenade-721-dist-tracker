@@ -13,7 +13,7 @@ const trackerc721 = async () => {
   try {
     let response = await axios.get(`${apiEndPoint}getTrackable721Contracts`, {
       headers: {
-        'x-promenade-api-secret': PROMENADE_API_SECRET 
+        'x-promenade-api-secret': process.env.PROMENADE_API_SECRET 
       }
     })
     if (response) {
